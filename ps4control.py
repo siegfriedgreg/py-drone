@@ -127,7 +127,7 @@ def draw():
     font = pygame.font.SysFont("impact", 25)
     latLabel = font.render("Lateral Speed:  {}".format(drone.latSpeed), 1, BLUE)
     vertLabel = font.render("Vertical Speed:  {}".format(drone.vertSpeed), 1, BLUE)
-    rotLabel = font.render("Rotational Speed:  {}".format(drone.rotSpeed), 1, BLUE)
+    rotLabel = font.render("Rotational Speed:  {}".format(drone.angSpeed), 1, BLUE)
     DISPLAY.blit(latLabel, (10, HEIGHT/10 + 30 * 1))
     DISPLAY.blit(vertLabel, (10, HEIGHT/10 + 30 * 2))
     DISPLAY.blit(rotLabel, (10, HEIGHT/10 + 30 * 3))
