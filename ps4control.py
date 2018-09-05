@@ -56,10 +56,16 @@ except:
 print "#### CONNECTED TO PS4 CONTROLLER ####"
 
 ##### reduces ps4 controller joystick sensitivity ####
-def smooth_axis_input(value):
+### Left Analog adjustment.
+def smooth_axis_inputL(value):
     if abs(value) < 0.1:
         return 0.0
     return value
+### Right Analog adjustment.
+def smooth_axis_inputR(value):
+    if abs(value) < 0.2:
+        return 0.0
+return value
 
 #### process pygame event queue ####
 def handle_events():
@@ -99,15 +105,15 @@ def handle_events():
 #### process moving the drone ####
 def handle_movement():
     #### MOVE ####
-    value = smooth_axis_input(controller.get_axis(0))
+    value = smooth_axis_inputL(controller.get_axis(0))
     drone.set_left_right(value)
-    value = smooth_axis_input(controller.get_axis(1))
+    value = smooth_axis_inputL(controller.get_axis(1))
     drone.set_front_back(value)
     #### UP and DOWN ####
-    value = smooth_axis_input(controller.get_axis(4))
+    value = smooth_axis_inputR(controller.get_axis(4))
     drone.set_vertical_speed(value * 5)
     #### ROTATE
-    value = smooth_axis_input(controller.get_axis(3))
+    value = smooth_axis_inputR(controller.get_axis(3))
     drone.set_angular_speed(value)
     #### Tell the drone to move ####
     if drone.isFlying:
