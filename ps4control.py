@@ -104,10 +104,10 @@ def handle_movement():
     value = smooth_axis_input(controller.get_axis(1))
     drone.set_front_back(value)
     #### UP and DOWN ####
-    value = smooth_axis_input(controller.get_axis(3))
-    drone.set_vertical_speed(value * -1 * 5)
+    value = smooth_axis_input(controller.get_axis(4))
+    drone.set_vertical_speed(value * 5)
     #### ROTATE
-    value = smooth_axis_input(controller.get_axis(2))
+    value = smooth_axis_input(controller.get_axis(3))
     drone.set_angular_speed(value)
     #### Tell the drone to move ####
     if drone.isFlying:
@@ -137,7 +137,7 @@ def draw():
     pygame.draw.circle(DISPLAY, BLUE, (WIDTH/4, 3*HEIGHT/4), 60, 5)
     pygame.draw.circle(DISPLAY, BLUE, (int(WIDTH/4 + controller.get_axis(0) * 20), int(3*HEIGHT/4 + controller.get_axis(1) * 20)), 40)
     pygame.draw.circle(DISPLAY, BLUE, (3*WIDTH/4, 3*HEIGHT/4), 60, 5)
-    pygame.draw.circle(DISPLAY, BLUE, (int(3*WIDTH/4 + controller.get_axis(2) * 20), int(3*HEIGHT/4 + controller.get_axis(3) * 20)), 40)
+    pygame.draw.circle(DISPLAY, BLUE, (int(3*WIDTH/4 + controller.get_axis(3) * 20), int(3*HEIGHT/4 + controller.get_axis(4) * 20)), 40)
 
     pygame.display.update()
 
