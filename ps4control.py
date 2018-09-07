@@ -111,7 +111,7 @@ def handle_movement():
     drone.set_front_back(value)
     #### UP and DOWN ####
     value = smooth_axis_inputR(controller.get_axis(4))
-    drone.set_vertical_speed(value * 5)
+    drone.set_vertical_speed(value * -1 * 5) # To Invert the Y control, remove the (-1).
     #### ROTATE
     value = smooth_axis_inputR(controller.get_axis(3))
     drone.set_angular_speed(value)
